@@ -1,0 +1,52 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        
+        //object function is global
+        console.log(Object);  // this is a function
+        var obj=new Object();   // this will return a blank object
+        console.log(obj);  
+        
+        
+        var objSimple={};
+        console.log(objSimple);
+        console.log(obj.__proto__===objSimple.__proto__);
+
+        function Employee() {
+
+        };
+
+        var emp=new Employee();
+        console.log(emp.testprop);   //this will give undefined
+        emp.__proto__.__proto__.testprop="from Object's prototype";
+        console.log(emp.testprop);   //this will give from Object's prototype
+        
+        emp.__proto__.testprop ="from Employee's prototype ";
+        console.log(emp.testprop);   //this will give from Employee's prototype
+
+        emp.testprop="directly from employee object";
+        console.log(emp.testprop);   //this will give directly from employee object
+
+        emp.__proto__.__proto__.grandParentProp="Grand Parent Property";
+        emp.__proto__.parentProperty="Parent Property";
+        emp.empProperty="Employee Property";
+        
+        console.log(emp.empProperty);
+        console.log(emp.parentProperty);
+        console.log(emp.grandParentProp);
+
+        console.log( emp.__proto__.__proto__.__proto__); //prottype of prototype of prototype is null
+        //its not  infanite linking
+        //prottype of prototype is nothing but Object's prototype 
+        // any property of function placed in objects prototype will be available to all the objects created using 
+        // new operator.
+
+        //there is hrarchy of search for a property first it search in the object 
+        //then in its prototype then in prototype of prototype
+        //prototype of any object is created using new Object() so prototype of prototype is Object's prototype
+
+
+       </script>
+    </body>
+    </html>

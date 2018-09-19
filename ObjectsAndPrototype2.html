@@ -1,0 +1,45 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+    
+       
+      //meant to called as regular function
+       function createBicycle(gear,speed){
+           //this={};                       //line1
+           var cycle={};
+           cycle.gear=gear;
+           cycle.speed=speed;
+           return cycle;
+           //return this;                   //line2
+       }
+
+       //meant to be called as constructor function
+       function Bicycle(gear,speed){
+           this.gear=gear;
+           this.speed=speed;
+       }
+
+
+       //calling regular function as constructor function
+       var cycle1=new createBicycle(5,50);
+       console.log("cycle1:"+cycle1.gear+"  "+cycle1.speed);
+       // in this way the function will still work
+       //but it will not use line1 and line2 
+
+
+
+
+       //calling   constructor function  as regular function
+       var cycle2=Bicycle(6,60);
+       console.log("cycle2:"+cycle2.gear+"  "+cycle2.speed);
+       // in this case the gear and speed is added to this object which is pointing to global
+       //and the the function is not returning anything means its returning undefined
+
+
+    
+    
+       </script>
+       
+    </body>
+    </html>

@@ -1,0 +1,70 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+      
+      var persion={
+          firstName:"Niranjan",
+          lastName:"Panigrahi",
+          getFirstName:function(){
+             return  this.firstName;
+          },
+          getLastName:function(){
+            return  this.lastName;
+          }
+      };
+
+      console.log("first name by property call:"+persion.firstName);
+      console.log("first name by method call:"+persion.getFirstName())
+
+      //first name is accessable both by property call and getter method call
+      //to restrict the access of property directly the following patteren is used 
+      // we can not keeep the property inside the persion object becoz
+      // aslong as properties are inside the object we can access through prop name.
+      
+      function createPersion(){
+       var firstName="Niranjan";
+       var lastName="Panigrahi";
+      var persion={
+          //firstName:"Niranjan",
+          //lastName:"Panigrahi",
+          getFirstName:function(){
+            // return  this.firstName;
+            return firstName;
+          },
+          getLastName:function(){
+            //return  this.lastName;
+            return lastName;
+          },
+          setFirstName:function(fName){
+              firstName=fName;
+          },
+          setLastName:function(lName){
+              lastName=lName;
+          }
+      }
+      return persion;
+    };
+
+
+    var persion1=createPersion();
+    console.log(persion1.firstName);    // this will be undefined
+    console.log(persion1.getFirstName()); //Niranjan
+
+
+    var persion2=createPersion();
+    persion2.setFirstName("xyz");
+    console.log(persion2.getFirstName()); //xyz
+
+
+    console.log(persion1.getFirstName()); //Niranjan
+
+    // this indicates each time innner functions are called 
+    // one copy of outer scope variables are created ex for firstName,lastName
+    //this is example closour
+
+
+       </script>
+       
+    </body>
+ </html>

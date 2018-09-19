@@ -1,0 +1,22 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        var topVar=10;
+        var inner=50;
+
+        function  myFun(){
+           var inner =30;        // scope inner within the fun is 30 but out side its 50
+           topVar=20;            //topVar has global scope
+           console.log("inner  inside myFun:"+inner);
+           console.log("topVar  inside myFun:"+topVar);
+        }
+
+        myFun();
+        console.log("inner  after myFun called:"+inner);
+        console.log("topVar  after myFun called:"+topVar);
+
+       </script>
+       
+    </body>
+ </html>

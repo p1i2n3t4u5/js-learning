@@ -1,0 +1,80 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+
+
+
+  
+    function Bicycle(speed,gear,tirePressure){
+           this.speed=speed;
+           this.gear=gear;
+           this.tirePressure=tirePressure;
+           this.increaseTirePressure=function(){
+               console.log("inside increase tyre pressure")
+               this.tirePressure+=3;
+           }
+       }
+
+        // in the above code as many objects we are creating those many functions will be created 
+        //inside each object which is not a better way.thats where prototype is used.
+
+        function foo(){
+            console.log("foo called");
+        }
+
+       // there are two objects are created when a function is declared
+       //those are foo object and foo's prototype object
+       //for one function only one prototype object can be created
+       console.log("foo===="+foo);
+       console.log("foo'prototype====="+foo.prototype);
+
+       // foo called as normal function there would not be any impact
+       foo();
+
+       var v=new foo(); //when foo is called as constructor even if we are not doing 
+                        //anything with the this object one property will be created in the blank returned  object
+                        //the property name __ptoto__  it will hold the prototype object of the function
+       console.log("v=="+v);
+       console.log("v.__proto__=="+v.__proto__);
+       console.log("v.__proto__.hasOwnProperty()=="+v.__proto__.hasOwnProperty());
+       console.log("v.__proto__.isPrototypeOf()=="+v.__proto__.isPrototypeOf());
+       console.log("v.__proto__.toLocaleString()=="+v.__proto__.toLocaleString());
+       console.log("v.__proto__.valueOf()=="+v.__proto__.valueOf());
+
+      
+       // all function objects will have same prototype in __proto__ 
+      foo.prototype.testprop="the prototype object property of foo";
+
+      var obj1=new foo(); 
+      var obj2=new foo(); 
+      console.log(foo.prototype.testprop);
+      console.log(obj1.__proto__.testprop);
+      console.log(obj2.__proto__.testprop);
+
+      console.log("changing prototype property");
+      obj1.__proto__.testprop="the prototype object property of foo changed";
+      console.log(foo.prototype.testprop);
+      console.log(obj1.__proto__.testprop);
+      console.log(obj2.__proto__.testprop);
+
+      console.log("foo.prototype===obj1.__proto__=="+foo.prototype===obj1.__proto__);
+      //if a perticular property is not present in the function object then it will look for the same in its 
+      //prototype object
+
+      console.log(obj1.testprop);
+      console.log(obj1.__proto__.testprop);
+      delete obj1.__proto__.testprop;
+      console.log(obj1.testprop);
+      console.log(obj1.__proto__.testprop);
+
+      //both function object and its prototype can have same prop name with different values
+      obj1.testprop="value from object";
+      obj1.__proto__.testprop="value from prototype";
+      console.log(obj1.testprop);
+      console.log(obj1.__proto__.testprop);
+      
+
+       </script>
+    </body>
+    </html>

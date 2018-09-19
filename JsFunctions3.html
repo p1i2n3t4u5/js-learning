@@ -1,0 +1,37 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+         // this keyword in object
+  
+          var persion={
+              "firstName":"Niranjan",
+              "lastName":"Panigrahi",
+              "getFullName":function(){
+                console.log("Full name:"+persion.firstName+" "+persion.lastName); //hardcoded persion
+              },
+              "address":{
+                  "street":"xyz street",
+                  "city":"JS",
+                  "state":"TX"
+              },
+              "isFromState":function(st){
+                 return st===this.address.state;
+              }
+          }
+  
+     var v= persion.isFromState("TX1");
+      console.log(v);
+      var v1= persion.isFromState("TX");
+      console.log(v1);
+         
+       </script>
+       
+    </body>
+  </html>
+  
+  
+  
+  
+  
+  

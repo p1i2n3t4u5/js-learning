@@ -1,0 +1,21 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+    
+     //js is single threaded programming language
+     // to delay exection of any method setTimeout is used.
+     //its an example of closure when the function is passed to the setTimeout
+     //method a snapshot of a also goes with function
+
+       console.log("hii");
+       a=10;
+      var fn=function fun(){
+        console.log("hello="+a);
+      }
+
+      setTimeout(fn,6000);
+       </script>
+       
+    </body>
+ </html>

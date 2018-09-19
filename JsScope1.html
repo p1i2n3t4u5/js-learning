@@ -1,0 +1,32 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        var a=10;
+        //how to create scope 
+        // java {} is used block any variable declared inside in a block is accessable only inside that block
+        //in js scopes are created using function
+        var name="Niranjan";
+        if(name === "Niranjan"){
+        var dept ="CS";
+        }
+        console.log(name);
+        console.log(dept);  //still accessable if block will not create a new scope
+
+
+        function myFun(){
+            if(name === "Niranjan"){
+                var salary=10000;
+            }
+        }
+
+        myFun();
+        //console.log(salary);  // this line will the throw errow as undefined becoz salary is 
+        // defined in  a function that means its a new scope its not accessable out side.
+        // name variable is accessable inside myFun i.e. outer scope variable is accessable inside 
+        // inner scope.
+
+       </script>
+       
+    </body>
+ </html>

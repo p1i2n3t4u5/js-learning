@@ -1,0 +1,76 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+       //different ways function can be called
+
+       //first way of calling function(function as an object)
+       function foo(){
+           console.log("Hello 1");
+           console.log(this);     // this points global object
+       }
+       foo();
+
+       //second way of calling function (function as property)
+       var obj={};
+       obj.foo=function(){
+           console.log("Hello 2");
+           console.log(this);  //this points to the object itself whose 
+                               //property is the function we are calling
+       }
+
+       obj.foo();
+
+       //third way of calling function 
+
+       function Foo(){
+           console.log("Hello 3");
+           console.log(this);     // this points to a newly created empty object
+       }
+       new Foo();
+
+       //fourth way of calling function 
+       function Bicycle(speed,gear,tirePressure){
+           this.speed=speed;
+           this.gear=gear;
+           this.tirePressure=tirePressure;
+           this.increaseTirePressure=function(){
+               console.log("inside increase tyre pressure")
+               this.tirePressure+=3;
+           }
+       }
+
+    var b1=new Bicycle(50,4,30);
+    console.log("b1 pressure"+b1.tirePressure);
+    b1.increaseTirePressure();
+    console.log("b1 pressure"+b1.tirePressure);
+
+    // the above way of calling function works fine
+    // but if the function is not inside the Bycycle 
+    //object then this will not point the bicycle object
+
+    function Mechanic(name){
+     this.name=name;
+    }
+
+    var mike=new Mechanic("Mike");
+    mike.increaseTirePressure=b1.increaseTirePressure;
+    mike.increaseTirePressure();
+    console.log("b1 pressure"+b1.tirePressure);  //this value will not change
+    console.log("mike pressure"+mike.tirePressure); //this will be NaN
+     //the above results are this becoz this object of increaseTirePressure function now pointing
+     //to mike object as it is a property of mike object.
+     //mike object does not have property called tirePressure so undefined plus 3 will return
+     //NaN
+
+     //fourth way solves this issue
+     //by calling the function with call() we can pass implecit object to the function 
+     //which will be assigned to the this object
+     mike.increaseTirePressure.call(b1);
+
+     console.log("b1 pressure"+b1.tirePressure);  //this value will  change
+    
+       </script>
+       
+    </body>
+    </html>

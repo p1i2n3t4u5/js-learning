@@ -1,0 +1,56 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+      
+            a=10;
+            console.log(b);
+            c++;
+
+            console.log(a);
+            console.log(b);
+            console.log(c);      //even if the variables are declared below 
+                                 // they do not throw any error it feels like
+                                 // they are hoisted at the top
+
+            var a;
+            var b;
+            var c=10;
+        // the above concept is same with function also
+        // only difference is in case of variable if variable is declared and defined 
+        // below with some value that value will not be available but in case function
+        // the function will still be executed  (means its available)
+        //ex2
+        fun1();
+
+        function fun1(){
+            console.log("Hello");
+        }
+
+
+        //ex3
+        //hoisting works with function declaration not with function expression
+        
+        function funA(){
+            console.log("funA called");
+            funB();
+        }
+        function funB(){
+            console.log("funB called");
+            funA();
+        }
+
+        //ex4 
+        //function expression example
+
+       fC();                      // in this line it will not recognize fC  as function will throw error
+                                  // rather it will consider fC as variable whose value is not assigned yet
+       var fC= function funC(){
+            console.log("funC called");
+        }
+         
+
+       </script>
+       
+    </body>
+ </html>

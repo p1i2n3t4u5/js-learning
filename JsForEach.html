@@ -1,0 +1,33 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        var arr=[10,20,"xyz",true];
+        
+        var myFun=function (){
+           console.log("Hello"); 
+        }
+      
+        arr.forEach(myFun);
+
+        var myFun2=function (item,index,arr){
+           console.log("Hello: "+item+"  "+index+"  "+arr); 
+        }
+
+        arr.forEach(myFun2);
+
+
+        var obj={"prop1":10,"prop2":20};
+
+         // obj.forEach(myFun2);
+
+        for (i in obj) {
+                console.log(i+"   "+obj[i]);
+        }
+       
+
+       </script>
+       
+    </body>
+  </html>
+  

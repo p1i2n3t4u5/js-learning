@@ -1,0 +1,111 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        var myName="Niranjan";
+
+        // js global variable reside in same name space so its not recomended.
+        // two js apis might be createing same global variable 
+        // having two global functions with same name will also create clash
+
+        
+        function  printName(myName){     //myName is local variable inside the function
+                                         //printName  global function
+           console.log("My Name:"+myName);
+        }
+
+        printName("xyz");
+       
+
+        // create a anonymous fun and execute immediately
+        // in this global name space is not manipulated
+        //IIFE immediately invoked Function Expression(IIFE)
+        
+
+        (function(){
+            var a=10;
+            var b=20;
+            console.log(a+b);
+        })();
+
+       // read write operation on variables
+       // we can  write to a variable even without declaring js will create a variable 
+       // in global scope .
+       // we can not read a variable without declaring it will through runtime error
+    
+       var test;
+       console.log(test);  //no issue
+       //console.log(test2);  // issue becoz test2 not declared in read operation
+
+       test3="hello";
+       console.log(test3); // no issue without even declaring we can write to variable
+
+
+       // when ever we create any global variable or global funtion we are creating one property
+       // in widow object
+       console.log(window);
+        //Js is both compiled and interprited language
+        //server returns the js code directly to browser it run by runtime
+
+        //----------------------------
+        // Compilation step
+        //----------------------------
+        //compilation stem goes through the js code if there are global variables 
+        //or method it registers in the global scope.
+
+
+        //ex1
+        var a=10;
+        function myFn(){
+            var b=20;
+            var c=30;
+            console.log(a+b);
+        }
+        myFn();
+
+        // the above code creates 4 variables and two scopes
+        // variables are a,myFn,b,c
+        //the two scopes are global scope  and  myFn scope
+        // a is declared in global scopes ,b and c are declared in myFun scope
+
+
+        //ex2
+
+        var namVar="xyz";
+        function greet(name){
+            console.log("my name"+name);
+        }
+        greet();
+
+        //above code 3 variable namVar,greet,name
+        //two scopes global scope and greet scope
+        //namVar and greet are in global scope
+        //name in greet scope
+
+        //------------------------
+        //  Execution step
+        //------------------------
+        //in this step it never checks for declaration 
+        //it searches for the variable in the scopes and if any assignment 
+        //is there it assigns the values
+
+        //ex3
+         
+        var x=10;
+
+        function xyz(){
+          var y=20;
+          z=30;
+        }
+        xyz();
+
+        //in the above code z will be created in global scope instead of xyz's scope
+        //undeclared  variables gets created in global scope
+
+
+    
+
+       </script>
+       
+    </body>
+ </html>

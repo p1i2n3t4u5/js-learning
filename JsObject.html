@@ -1,0 +1,131 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+         
+            var val1=15;
+             var val2="15";
+             if(val1  === val2){
+                console.log(" two objects are equal");
+             }else{
+                console.log(" Not equal");
+             }
+
+             if(val1  == val2){
+                console.log(" two objects are equal");
+             }else{
+                console.log(" Not equal");
+             }
+
+             var myObj={"prop1":15};  //new Object();
+             console.log(myObj);
+
+             var myObj2=myObj;
+             if(myObj===myObj2){
+                console.log(" two objects are equal");
+             }else{
+                console.log(" Not equal");
+             }
+             var myObj3={"prop1":15};  //new Object();
+
+             if(myObj===myObj3){
+                console.log(" two objects are equal");
+             }else{
+                console.log(" Not equal");
+             }
+
+
+             myObj.prop2="Niranjan";
+             console.log(myObj.prop2);
+             console.log(myObj["prop2"]);
+             console.log(myObj["prop1"]);
+             console.log(myObj["prop3"]);
+             console.log(myObj.prop3);
+
+             var myObj4={
+                 prop1:"xyz",
+                 prop2:30,
+                 prop3:true,
+                 prop4:undefined,
+                 prop5:null,
+                 prop6:"Hello"
+             }
+
+
+             for (aProperty in myObj4) {
+                document.write(aProperty);
+                document.write("\n");
+                document.write(myObj4[aProperty]);
+                document.write("<br />");
+             }
+
+
+
+             myObj4.prop3=undefined;
+
+             document.write("printing after removing the property3 <br />"); 
+             for (aProperty in myObj4) {
+                document.write(aProperty);
+                document.write("\n");
+                document.write(myObj4[aProperty]);
+                document.write("<br />");
+             }
+
+             document.write("Better way to remove a property5  <br />"); 
+             delete myObj4.prop6;
+             for (aProperty in myObj4) {
+                document.write(aProperty);
+                document.write("\n");
+                document.write(myObj4[aProperty]);
+                document.write("<br />");
+             }
+
+
+
+             //typeof operator
+
+             var myName="Niranjan";
+             var age=55;
+             var married=false;
+             var undefinedValue=undefined;
+             var nullValue=null;
+
+             console.log("type of myObj4="+typeof myObj4);  // object
+             console.log("type of married="+typeof married);  //boolean
+             console.log("type of age="+typeof age);  //number
+             console.log("type of undefinedValue="+typeof undefinedValue);  //undefined
+             console.log("type of nullValue="+typeof nullValue);   //object
+
+             // typeof null value will return object
+
+             //inner object dot notation  and sqaure bracket notation
+
+            var myObj5={
+                name:"Niranjan",
+                age:15,
+                address:{
+                    addressLine1:"3rd Main 9th Cross",
+                    addressLine2:"Hoysala Nagar",
+                    inneraddobj:{
+                        prop:"hxhhdh",
+                        prop2:"ygywgsgd"
+                    }
+                }
+            };
+
+
+            console.log(myObj5["name"]);
+            console.log(myObj5["address"]);
+            console.log(myObj5["address"]["addressLine1"]);
+
+
+            for (aProperty in myObj5) {
+                console.log(aProperty);
+                console.log(myObj5[aProperty]);
+             }
+
+                     
+       </script>
+       
+    </body>
+ </html>

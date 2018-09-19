@@ -1,0 +1,65 @@
+<html>
+<body>
+
+   <script language="javascript" type="text/javascript">
+
+   //if want to create multiple employee .its repeatative approach
+   var emp1={};
+   emp1.firstName="Niranjan";
+   emp1.lastName="Panigrahi";
+   emp1.gender="M";
+   emp1.designamtion="Manager";
+
+   var emp2={};
+   emp2.firstName="xyz";
+   emp2.lastName="Panigrahi";
+   emp2.gender="M";
+   emp2.designamtion="Manager";
+
+   console.log("emp2:"+emp2.firstName);
+
+   
+  // second approach to create multiple employees
+   function createEmployee(firstName,lastName,gender,designation){
+    var emp={};                                                     //line1
+    emp.firstName=firstName;
+    emp.lastName=lastName;
+    emp.gender=gender;
+    emp.designamtion=designation;
+    return emp;                                                      //line2
+   }                                                                 // both line1 and line2 are default any 
+                                                                     //function which creates a perticular  type of object
+
+    var emp3=createEmployee("Satya","Mishra","M","developer");
+
+    console.log("emp3:"+emp3.firstName);
+
+    //third approch eleminates the  above default lines
+
+    function CreateEmployee(firstName,lastName,gender,designation){
+    //var this={};                                                     //line1
+    this.firstName=firstName;
+    this.lastName=lastName;
+    this.gender=gender;
+    this.designamtion=designation;
+    //return this;                                                      //line2
+   }   
+   
+   //line1 and line2 will be autometically be present
+   var emp4=new CreateEmployee("Satya2","Mishra2","M","developer2");
+
+   console.log("emp4:"+emp4.firstName);
+
+  //any function can be called constructor mode or normal mode
+  // but a function designed to work as constructor mode will not work as expected if it is 
+  // called in normal mode and vise versa.
+  //It does not depend upon the way the  function is declared it depends upon the way it is called
+  // To create a differntiation the function which needs to be called as constuctor mode should 
+  // start with upper case.
+
+
+
+   </script>
+   
+</body>
+</html>

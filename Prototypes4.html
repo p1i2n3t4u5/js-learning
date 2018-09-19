@@ -1,0 +1,44 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        
+        //Inheritance of object
+       
+
+        function Employee(name) {
+            this.name=name;
+        };
+
+       Employee.prototype.getName= function (){
+          return this.name;
+       };
+      //  Employee.prototype.getName();
+
+       var emp=new Employee("Ram");
+       console.log("Employee's name is:"+emp.getName());
+
+
+       function Manager(name,dept){
+        this.name=name;
+        this.dept=dept;
+       }
+       Manager.prototype.getDept=function(){
+          return this.dept;
+       }
+
+       var mgr=new Manager("Hari","Finance");
+       console.log("Managers's dept is:"+mgr.getDept());
+
+       //how to get the name of manager as it does not exist
+       // but employee object already has getName how to use that?
+       // one soln is to put in Object's prototype but the problem it will be available 
+       //to every object created using new  in javascript
+       //second solution is to point Manager prototype of prototype to point to Employee's prototype
+
+       Manager.prototype.__proto__=Employee.prototype;
+       console.log("Manager's Name is :"+mgr.getName());
+       
+       </script>
+    </body>
+    </html>

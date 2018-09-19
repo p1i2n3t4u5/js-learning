@@ -1,0 +1,82 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+
+       //function declaration approach
+        function sayHello(){
+            console.log("Say hello");
+        }
+
+        function add(a,b){
+            console.log("sum:"+(a+b));
+        }
+
+        function printMydata(a,b,c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        function functionWithReturn(){
+            return "Hello";
+        }
+
+
+         sayHello();
+         add(10,20);
+         printMydata("hello","hi","bye");
+         console.log("calling with 2 params");
+         printMydata("hello","hi");
+         console.log("calling with 4 params");
+         printMydata("hello","hi","bye","hehe");
+         var returnvalue=functionWithReturn();
+         console.log("returnvalue:"+returnvalue);
+
+
+        //function as value or function expression
+
+       var f= function functionAsValue(){
+            console.log("functionAsValue method called")
+        };
+
+        f();  //the function is called
+
+
+        //anonymous function expression
+
+        var  f=function (){
+            console.log("anonymous function called");
+        }
+        f();
+
+        //function as argument
+
+        var  f=function (myname){
+            console.log("anonymous function called by "+myname);
+        }
+       
+
+        var myexecuter=function(fn,name){
+            console.log(fn);
+            fn(name);
+        }
+
+        myexecuter(f,"Niranjan");
+
+
+        //function as property in object
+
+        var myObj={"testProp":true}
+
+        myObj.myfun=function(){
+            console.log("Hello");
+        }
+       
+        myObj.myfun();
+        console.log(myObj);
+
+       </script>
+       
+    </body>
+ </html>

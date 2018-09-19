@@ -1,0 +1,46 @@
+<html>
+  <body>
+  
+     <script language="javascript" type="text/javascript">
+       // this keyword in object
+
+        var persion={
+            "firstName":"Niranjan",
+            "lastName":"Panigrahi",
+            "getFullName":function(){
+              console.log("Full name:"+persion.firstName+" "+persion.lastName); //hardcoded persion
+            }
+        }
+
+        persion.getFullName();
+        var persion2=persion;
+        persion={};
+        persion2.getFullName();
+        //persion.getFullName();   //will throw error
+
+        console.log("Non hadcoded this object use");
+        var persion3={
+            "firstName":"Niranjan",
+            "lastName":"Panigrahi",
+            "getFullName":function(){
+              console.log("Full name:"+this.firstName+" "+this.lastName); //hardcoded persion
+            }
+        }
+
+        persion3.getFullName();
+        var persion4=persion3;
+        persion3.getFullName();
+        persion4.getFullName();
+
+        
+
+       
+     </script>
+     
+  </body>
+</html>
+
+
+
+
+

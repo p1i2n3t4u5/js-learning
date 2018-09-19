@@ -1,0 +1,28 @@
+<html>
+    <body>
+    
+       <script language="javascript" type="text/javascript">
+        var a=10;
+        function outer(){
+            var b=a;
+            console.log(b);
+            function inner(){
+                
+                var c=b;
+                console.log(c);   // this will print undefined instead of 10
+                var b=20;         //compiler step already created a variable b in inner scope
+            }
+            inner();
+        }
+        outer();
+
+        //ex2
+        console.log(c);          // this will print undefined becoz compiler has 
+                                 // already created c in global scope
+        //console.log(d);        // this line will throw the error
+        c=10;
+
+       </script>
+       
+    </body>
+ </html>
