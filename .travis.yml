@@ -1,18 +1,18 @@
 language: node_js
 node_js:
   - "10"
-# dist: trusty
-# addons:
-#   chrome: stable
-# env:
-#   global:
-#     - CC_TEST_REPORTER_ID=#Need to Create
+dist: trusty
+addons:
+  chrome: stable
+env:
+  global:
+    - CC_TEST_REPORTER_ID=6af083e9a53b7a1d3a19b6b92d596b2a6b2f4e0f591e26fb79e25ace3c188fbb
 
-# addons:
-#     code_climate:
-#         repo_token: #Need to Create
-# script: istanbul cover node_modules/mocha/bin/_mocha -- -R spec
-# before_script:
-#   - npm install codeclimate-test-reporter istanbul -g
-# after_script:
-#   - codeclimate-test-reporter < ./coverage/lcov.info
+addons:
+    code_climate:
+        repo_token: 6af083e9a53b7a1d3a19b6b92d596b2a6b2f4e0f591e26fb79e25ace3c188fbb
+script: istanbul cover node_modules/mocha/bin/_mocha -- -R spec
+before_script:
+  - npm install codeclimate-test-reporter istanbul -g
+after_script:
+  - codeclimate-test-reporter < ./coverage/lcov.info
