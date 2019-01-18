@@ -11,3 +11,4 @@ engines:
         enabled: false
       fatal:
         enabled: false # ignore 'Parsing error: 'import' and 'export' may only appear at the top level'
+        
