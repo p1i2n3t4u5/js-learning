@@ -26,4 +26,4 @@ Then, just like any other function, in order to invoke it, we add another pair o
 
 ## Lets Look the ultimate version of the code: 
 ``` IIFE.js ```
-[IIFE]()
+[IIFE](https://github.com/p1i2n3t4u5/js-learning/blob/js_new_bees/src/IIFE_pattern/core/IIFE.js)
