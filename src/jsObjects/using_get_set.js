@@ -9,6 +9,14 @@ var accessorObj = {
     }
   };
 
+  let objProperties = {
+      a: 5,
+     
+  };
+
 module.exports = {
     obj: accessorObj,
+    objProperties: objProperties,
+
+
 }
