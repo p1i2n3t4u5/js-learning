@@ -1,6 +1,6 @@
 # Class VS Factory Function
 
-## ECMAScript 2015 (aka ES6) comes with the class syntax, so now we have two competing patterns for creating objects. In order to compare them, I’ll create the same object definition (TodoModel) as a class, and then as a factory function.
+###  ECMAScript 2015 (aka ES6) comes with the class syntax, so now we have two competing patterns for creating objects. In order to compare them, I’ll create the same object definition (TodoModel) as a class, and then as a factory function.
 
 
 Encapsulation
@@ -72,7 +72,7 @@ function TodoModel(){
 todoModel.reload();                   //[]
 $("#btn").click(todoModel.reload);    //[]
 ```
-##this and arrow function
+###  this and arrow function
 The arrow function partially solves the this loosing context issues in classes, but at the same time creates a new problem:
 
 this is no longer loosing context in nested functions
@@ -91,7 +91,7 @@ setTimeout(() => {
 }, 0);
 ```
 
-##Immutable API
+###  Immutable API
 Once the object is created, I’m expecting its API to be immutable. I can easily change the implementation of a public method to do something else when it was created using a class.
 ```
 todoModel.reload = function() { console.log("a new reload"); }
@@ -106,7 +106,7 @@ todoModel.reload = function() { console.log("a new reload"); }
 todoModel.reload();            //reload
 
 ```
-##new
+###  new
 new should be used when creating objects using classes.
 
 new is not required when creating objects with factory functions, but if that makes it more readable, you can go for it, there is no harm.
@@ -114,7 +114,7 @@ new is not required when creating objects with factory functions, but if that ma
 var todoModel= new TodoModel();
 Using new with a factory function will just return the object created by the factory.
 ```
-##Composition over inheritance
+###  Composition over inheritance
 Classes support both inheritance and composition.
 
 Below is an example of inheritance where SpecialService class inherits from Service class:
@@ -174,7 +174,7 @@ specialService.doSomething();
 specialService.doSomethingElse();
 
 ```
-##Memory
+### Memory
 Classes are better at memory conservation, as they are implemented over the prototype system. All methods will be created only once in the prototype object and shared by all instances.
 
 The memory cost of the factory function is noticeable when creating thousands of the same object.
@@ -220,7 +220,7 @@ In the application, there may be hundreds or thousands of instances of a UI comp
 
 Components will be built according to the component framework practice. For example, object literals will be used for Vue, or classes for React. Each component’s members will be public, but they will benefit from the memory conservation of the prototype system.
 
-##Conclusion
+###  Conclusion
 The strong points of class are its familiarity for people coming from a class-based background and its nicer syntax over the prototype system. However, its security problems and the usage of this, a continuous source of losing context bugs, makes it a second option. As an exception, classes will be used if required by the component’s framework, as in the case of React.
 
 Factory function is not only the better option for creating secured, encapsulated, and flexible OOP Objects but also opens the door for a new, unique to JavaScript, programming paradigm.
